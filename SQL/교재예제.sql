@@ -78,6 +78,112 @@ INSERT INTO `sample24` (`a`,`b`,`c`) VALUES(0,2,2);
  SELECT * FROM `sample25` WHERE `text` LIKE 'SQL%';
  #p86
  SELECT * FROM `sample25` WHERE `text` LIKE '%SQL%';
- #p87
+ #p88
  SELECT * FROM `sample25` WHERE `text` LIKE '%\%%';
  
+ #p95
+ CREATE TABLE `sample31` (
+ `name` VARCHAR(10),
+ `age` INT,
+ `address` VARCHAR(225)
+ );
+ 
+INSERT INTO `sample31` VALUES ('A씨', 36, '대구광역시 중구');
+INSERT INTO `sample31` VALUES ('B씨', 18, '부산광역시 연제구');
+INSERT INTO `sample31` VALUES ('C씨', 25, '서울특별시 중구');
+
+SELECT * FROM `sample31`;
+SELECT * FROM `sample31` ORDER BY `age`;
+
+#p96
+SELECT * FROM `sample31` ORDER BY `address`;
+#p98
+SELECT * FROM `sample31` ORDER BY `age`DESC;
+SELECT * FROM `sample31` ORDER BY `age`ASC;
+#p100
+
+CREATE TABLE `sample311` (
+`a` VARCHAR(13),
+`b` INTeger
+);
+
+
+
+INSERT INTO `sample311` VALUES(1, 1);
+INSERT INTO `sample311` VALUES(2, 2);
+INSERT INTO `sample311` VALUES(10, 10);
+INSERT INTO `sample311` VALUES(11, 11);
+
+SELECT * FROM `sample311`;
+SELECT * FROM `sample311` ORDER BY `a`;
+SELECT * FROM `sample311` ORDER BY `b`;
+
+#p103
+CREATE TABLE `sample32` (
+`a` INTEGER,
+`b` INTEGER
+);
+
+INSERT INTO `sample32` VALUES (1, 1);
+INSERT INTO `sample32` VALUES (2, 1);
+INSERT INTO `sample32` VALUES (2, 2);
+INSERT INTO `sample32` VALUES (1, 3);
+INSERT INTO `sample32` VALUES (1, 2);
+
+SELECT * FROM `sample32`;
+
+SELECT * FROM `sample32`
+ORDER BY `a`, `b` asc;
+
+SELECT * FROM `sample32`
+ORDER BY `b`,`a`;
+#p106
+SELECT * FROM `sample32` 
+ORDER BY `a` ASC, `b` DESC;
+
+#p109
+ CREATE TABLE `sample33` (
+ `no` INT);
+ 
+ INSERT INTO `sample33` SET `no` = 1;
+ INSERT INTO `sample33` SET `no` = 2;
+ INSERT INTO `sample33` SET `no` = 3;
+ INSERT INTO `sample33` SET `no` = 4;
+ INSERT INTO `sample33` SET `no` = 5;
+ INSERT INTO `sample33` SET `no` = 6;
+ INSERT INTO `sample33` SET `no` = 7;
+ 
+ SELECT *FROM `sample33`;
+SELECT * FROM `sample33`LIMIT 3;
+SELECT * FROM `sample33` 
+ORDER BY `no` DESC
+LIMIT 3;
+
+#p113
+SELECT * FROM `sample33` 
+LIMIT 3
+OFFSET 0; 
+
+SELECT * FROM `sample33`
+LIMIT 3
+OFFSET 3;
+
+SELECT * FROM `sample33` 
+LIMIT 3
+OFFSET 6
+
+#p117
+CREATE TABLE `sample34` (
+`no` INT AUTO_INCREMENT PRIMARY key,
+`price` INT,
+`quantity` INT
+);
+
+
+INSERT INTO `sample34`(`price`, `quantity`) VALUES(100, 10); 
+INSERT INTO `sample34`(`price`, `quantity`) VALUES(230, 24);
+INSERT INTO `sample34`(`price`, `quantity`) VALUES(1980, 1);
+
+SELECT * FROM `sample34`;
+SELECT *, price*quantity FROM `sample34`;
+SELECT *, price*quantity AS `amount` FROM `sample34`;
