@@ -163,6 +163,9 @@ SELECT COUNT(*) AS '판매건수' FROM `orders`;
 #문제32
 
 
+#문제33
+SELECT *
+FROM `order` WHERE `price`>=8000;
 
 #문제34
 SELECT *
